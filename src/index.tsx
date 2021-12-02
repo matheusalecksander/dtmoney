@@ -18,6 +18,14 @@ createServer({
           category: 'dev',
           amount: 6000,
           createdAt: new Date()
+        },
+        {
+          id: 2,
+          title: 'Mercado',
+          type: 'withdraw',
+          category: 'dev',
+          amount: 700,
+          createdAt: new Date()
         }
       ]
     })

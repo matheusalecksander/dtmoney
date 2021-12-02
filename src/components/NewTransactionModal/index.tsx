@@ -5,7 +5,7 @@ import { Container, TransactionTypeContainer, RadioBox } from './styles'
 import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
-import { TransactionsContext } from '../../TransactionsContexts'
+import { useTransactions } from '../../hooks/useTransactions'
 
 Modal.setAppElement('#root')
 
@@ -15,7 +15,7 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
-  const { createNewTransaction } = useContext(TransactionsContext)
+  const { createNewTransaction } = useTransactions()
 
   const [title, setTitle] = useState('')
   const [amount, setAmount] = useState(0)
@@ -87,9 +87,9 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
           <RadioBox
             type="button"
             onClick={() => {
-              setType('whitdraw')
+              setType('withdraw')
             }}
-            isActive={type === 'whitdraw'}
+            isActive={type === 'withdraw'}
             activeColor={'red'}
           >
             <img src={outcomeImg} alt="Saída" />
